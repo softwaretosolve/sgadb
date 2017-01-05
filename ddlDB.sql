@@ -253,12 +253,19 @@ create table Nota(
 	MatriculaID int
 );
 
+create table Curso(
+	CursoID int,		
+	
+	CicloID int,
+	AsignaturaID int,
+	SeccionID int
+);
+
 create table Profesor(
 	ProfesorID int,
 	FechaInicio datetime,
 	FechaFin datetime,
 		
-	PersonaID int,
-	SeccionID int,
-	AsignaturaID int
+	PersonaID int,	
+	Curso int
 );
