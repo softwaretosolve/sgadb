@@ -246,8 +246,7 @@ create table Matricula(
 	MatriculaID int,
 	Fecha datetime,
 	
-	InstitucionID int,
-	PersonaID int,
+	InstitucionPersonaID int
 	CicloID int,
 	NivelID int
 );
@@ -274,6 +273,6 @@ create table Profesor(
 	FechaInicio datetime,
 	FechaFin datetime,
 		
-	PersonaID int,	
+	InstitucionPersonaID int,	
 	Curso int
 );
