@@ -63,32 +63,41 @@ create table PersonaCorreo(
 
 create table Rol(
     RolID int,
-    Descripcion varchar(50),
-    
-    InstitucionID int
+    Descripcion varchar(50)
 );
 
-create table PersonaRol(
-	PersonaRolID int,
+create table InstitucionRol(
+	InstitucionRolID int,
+		
+	InstitucionID int,
+	RolID int
+);
+
+create table InstitucionPersonaRol(
+	InstitucionPersonaRolID int,
 	FechaInicio datetime,
 	FechaFin datetime,
 	
-	InstitucionID int,
-	PersonaID int,
+	InstitucionPersonaID int,	
 	RolID int
 );
 
 create table Permiso(
 	PermisoID int,
-	Descripcion varchar(50),
-	
-	InstitucionID int
+	Descripcion varchar(50)
 );
 
-create table RolPermiso(
-	RolPermisoID int,
+create table InstitucionPermiso(
+	InstitucionPermisoID int,
+		
+	InstitucionID int,
+	PermisoID int
+);
+
+create table InstitucionRolPermiso(
+	InstitucionRolPermisoID int,
 	
-	RolID int,
+	InstitucionRolID int,
 	PermisoID int
 );
 --------------------------------- FIN MÓDULO ADMINISTRACION ---------------------
@@ -223,6 +232,13 @@ create table Actividad(
 	UnidadID int
 );
 
+create table Curso(
+	CursoID int,		
+	
+	CicloID int,
+	AsignaturaID int,
+	SeccionID int
+);
 ------------------------------------------- FIN ORGANIZACIÓN ACADÉMICA -------------------------------------------
 
 ------------------------------------------- CONTROL ACADÉMICO ---------------------------------------------
@@ -251,14 +267,6 @@ create table Nota(
 	
 	ActividadID int,
 	MatriculaID int
-);
-
-create table Curso(
-	CursoID int,		
-	
-	CicloID int,
-	AsignaturaID int,
-	SeccionID int
 );
 
 create table Profesor(
