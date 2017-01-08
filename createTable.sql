@@ -328,7 +328,7 @@ create table Matricula(
 	ID int not null AUTO_INCREMENT,
 	Fecha datetime,
 	
-	InstitucionPersonaID int
+	InstitucionPersonaID int,
 	CicloID int,
 	NivelID int,
 	
@@ -362,7 +362,7 @@ create table Profesor(
 	FechaFin datetime,
 		
 	InstitucionPersonaID int,	
-	Curso int,
+	CursoID int,
 	
 	primary key (ID)
 );
