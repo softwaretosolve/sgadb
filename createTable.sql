@@ -1,5 +1,5 @@
 create table Estado(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50),
 	
 	primary key (ID)
@@ -9,137 +9,137 @@ create table Estado(
 ------------------------------------- MÓDULO ADMINISTRACION ---------------------
 
 create table Institucion(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     Nombre varchar(100),
 	
-	EstadoID int,
+	EstadoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Telefono(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     Telefono varchar(20),
 	
 	primary key (ID)
 );
 
 create table Correo(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     Correo varchar(50),
 	
 	primary key (ID)
 );
 
 create table InstitucionTelefono(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     
-    InstitucionID int,
-    TelefonoID int,
+    InstitucionID int unsigned,
+    TelefonoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionCorreo(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     
-    InstitucionID int,
-    CorreoID int,
+    InstitucionID int unsigned,
+    CorreoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Persona(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     Nombres varchar(50),
     Apellidos varchar(50),
     FechaNacimiento datetime,
     Identificacion varchar(50),
     Direccion varchar(100),        
-    Sexo int,
+    Sexo int unsigned,
 	
 	primary key (ID)       
 );
 
 create table InstitucionPersona(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     
-    InstitucionID int,
-    PersonaID int,
+    InstitucionID int unsigned,
+    PersonaID int unsigned,
 	
 	primary key (ID)
 );
 
 create table PersonaTelefono(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     
-    PersonaID int,
-    TelefonoID int,
+    PersonaID int unsigned,
+    TelefonoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table PersonaCorreo(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     
-    PersonaID int,
-    CorreoID int,
+    PersonaID int unsigned,
+    CorreoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Rol(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     Descripcion varchar(50), 
 	
-	EstadoID int,
+	EstadoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionRol(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 		
-	InstitucionID int,
-	RolID int,
+	InstitucionID int unsigned,
+	RolID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionPersonaRol(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	FechaInicio datetime,
 	FechaFin datetime,
 	
-	InstitucionPersonaID int,	
-	RolID int,
+	InstitucionPersonaID int unsigned,	
+	RolID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Permiso(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Descripcion varchar(50),
 	
-	EstadoID int,
+	EstadoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionPermiso(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 		
-	InstitucionID int,
-	PermisoID int,
+	InstitucionID int unsigned,
+	PermisoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionRolPermiso(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	
-	InstitucionRolID int,
-	PermisoID int,
+	InstitucionRolID int unsigned,
+	PermisoID int unsigned,
 	
 	primary key (ID)
 );
@@ -148,111 +148,111 @@ create table InstitucionRolPermiso(
 
 -------------------------------------ORGANIZACIÓN ACADÉMICA ------------------------------
 create table Materia(
-    ID int not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,
     Nombre varchar(75),
 	
-	EstadoID int,
+	EstadoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionMateria(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	
-	InstitucionID int,
-	MateriaID int,
+	InstitucionID int unsigned,
+	MateriaID int unsigned,
 	
 	primary key (ID)
 );
 
 create table CategoriaCiclo(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50),
 	
-	CategoriaCicloPadreID int,
+	CategoriaCicloPadreID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionCategoriaCiclo(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	
-	InstitucionID int,
-	CategoriaCicloID int,
+	InstitucionID int unsigned,
+	CategoriaCicloID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Ciclo(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50),
 	FechaInicio datetime,
 	FechaFin datetime,
 		
-	CategoriaCicloID int,
-	CicloPadreID int,
+	CategoriaCicloID int unsigned,
+	CicloPadreID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionCiclo(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	
-	InstitucionID int,
-	CicloID int,
+	InstitucionID int unsigned,
+	CicloID int unsigned,
 	
 	primary key (ID)
 );
 
 create table CategoriaNivel(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50),
 	
-	CategoriaNivelPadreID int,
+	CategoriaNivelPadreID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionCategoriaNivel(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	
-	InstitucionID int,
-	CategoriaNivelID int,
+	InstitucionID int unsigned,
+	CategoriaNivelID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Nivel(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(75), 
 	
-	CategoriaNivelID int,
-	NivelPadreID int,
+	CategoriaNivelID int unsigned,
+	NivelPadreID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionNivel(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	
-	InstitucionID int,
-	NivelID int,
+	InstitucionID int unsigned,
+	NivelID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Seccion(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50),
 
-	InstitucionNivelID int,
-	EstadoID int,
+	InstitucionNivelID int unsigned,
+	EstadoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Curriculo(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(100),
 	Fecha datetime,
 	
@@ -260,72 +260,72 @@ create table Curriculo(
 );
 
 create table Asignatura(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	
-	CurriculoID int,
-	MateriaID int,
+	CurriculoID int unsigned,
+	MateriaID int unsigned,
 	
 	primary key (ID)
 );
 
 create table InstitucionNivelCurriculo(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	FechaInicio datetime,
 	FechaFin datetime,
 	
-	InstitucionNivelID int,	
-	CurriculoID int,
+	InstitucionNivelID int unsigned,	
+	CurriculoID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Unidad(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50),
 	PuntajeMinimo double,
 	PuntajeMaximo double,	
 		
-	AsignaturaID int,
-	CicloID int,
+	AsignaturaID int unsigned,
+	CicloID int unsigned,
 	
 	primary key (ID)
 );
 
 create table TipoActividad(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Descripcion varchar(75),
 	
 	primary key (ID)
 );
 
 create table InstitucionTipoActividad(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	
-	InstitucionID int,
-	TipoActividadID int,
+	InstitucionID int unsigned,
+	TipoActividadID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Actividad(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(75),
 	Descripcion varchar(1000),
 	Ponderacion double,
 	Fecha datetime,
 	
-	TipoActividadID int,
-	UnidadID int,
+	TipoActividadID int unsigned,
+	UnidadID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Curso(
-	ID int not null AUTO_INCREMENT,		
+	ID int unsigned not null AUTO_INCREMENT,		
 	
-	CicloID int,
-	AsignaturaID int,
-	SeccionID int,
+	CicloID int unsigned,
+	AsignaturaID int unsigned,
+	SeccionID int unsigned,
 	
 	primary key (ID)
 );
@@ -333,44 +333,44 @@ create table Curso(
 
 ------------------------------------------- CONTROL ACADÉMICO ---------------------------------------------
 create table Matricula(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Fecha datetime,
 	
-	InstitucionPersonaID int,
-	CicloID int,
-	NivelID int,
+	InstitucionPersonaID int unsigned,
+	CicloID int unsigned,
+	NivelID int unsigned,
 	
 	primary key (ID)
 );
 
 create table MatriculaSeccion(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	FechaInicio datetime,
 	FechaFin datetime,
 	
-	MatriculaID int,
-	SeccionID int,
+	MatriculaID int unsigned,
+	SeccionID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Nota(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	Puntaje double,
 	
-	ActividadID int,
-	MatriculaID int,
+	ActividadID int unsigned,
+	MatriculaID int unsigned,
 	
 	primary key (ID)
 );
 
 create table Profesor(
-	ID int not null AUTO_INCREMENT,
+	ID int unsigned not null AUTO_INCREMENT,
 	FechaInicio datetime,
 	FechaFin datetime,
 		
-	InstitucionPersonaID int,	
-	CursoID int,
+	InstitucionPersonaID int unsigned,	
+	CursoID int unsigned,
 	
 	primary key (ID)
 );
