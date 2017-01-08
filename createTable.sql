@@ -195,6 +195,15 @@ create table Ciclo(
 	primary key (ID)
 );
 
+create table InstitucionCiclo(
+	ID int not null AUTO_INCREMENT,
+	
+	InstitucionID int,
+	CicloID int,
+	
+	primary key (ID)
+);
+
 create table CategoriaNivel(
 	ID int not null AUTO_INCREMENT,
 	Nombre varchar(50),
@@ -264,8 +273,7 @@ create table InstitucionNivelCurriculo(
 	FechaInicio datetime,
 	FechaFin datetime,
 	
-	InstitucionID int,
-	NivelID int,
+	InstitucionNivelID int,	
 	CurriculoID int,
 	
 	primary key (ID)
