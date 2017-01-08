@@ -149,7 +149,7 @@ create table InstitucionRolPermiso(
 -------------------------------------ORGANIZACIÓN ACADÉMICA ------------------------------
 create table Materia(
     ID int not null AUTO_INCREMENT,
-    Nombre varchar(100),
+    Nombre varchar(75),
 	
 	EstadoID int,
 	
@@ -224,7 +224,7 @@ create table InstitucionCategoriaNivel(
 
 create table Nivel(
 	ID int not null AUTO_INCREMENT,
-	Nombre varchar(50), 
+	Nombre varchar(75), 
 	
 	CategoriaNivelID int,
 	NivelPadreID int,
@@ -293,7 +293,7 @@ create table Unidad(
 
 create table TipoActividad(
 	ID int not null AUTO_INCREMENT,
-	Descripcion varchar(50),
+	Descripcion varchar(75),
 	
 	primary key (ID)
 );
@@ -309,8 +309,8 @@ create table InstitucionTipoActividad(
 
 create table Actividad(
 	ID int not null AUTO_INCREMENT,
-	Nombre varchar(50),
-	Descripcion varchar(250),
+	Nombre varchar(75),
+	Descripcion varchar(1000),
 	Ponderacion double,
 	Fecha datetime,
 	
