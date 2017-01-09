@@ -282,8 +282,8 @@ create table InstitucionNivelCurriculo(
 create table Unidad(
 	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50),
-	PuntajeMinimo double,
-	PuntajeMaximo double,	
+	PuntajeMinimo decimal(9,2),
+	PuntajeMaximo decimal(9,2),	
 		
 	AsignaturaID int unsigned,
 	CicloID int unsigned,
@@ -311,7 +311,7 @@ create table Actividad(
 	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(75),
 	Descripcion varchar(1000),
-	Ponderacion double,
+	Ponderacion decimal(9,2),
 	Fecha datetime,
 	
 	TipoActividadID int unsigned,
@@ -356,7 +356,7 @@ create table MatriculaSeccion(
 
 create table Nota(
 	ID int unsigned not null AUTO_INCREMENT,
-	Puntaje double,
+	Puntaje decimal(9,2),
 	
 	ActividadID int unsigned,
 	MatriculaID int unsigned,
