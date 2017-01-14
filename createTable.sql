@@ -316,7 +316,7 @@ create table InstitucionNivelCurriculo(
 create table Unidad(
 	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50) not null,
-	PuntajeMinimo decimal(9,2) null default 0,
+	PuntajeMinimo decimal(9,2) null,
 	PuntajeMaximo decimal(9,2) null,
 	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 		
@@ -388,7 +388,7 @@ create table Matricula(
 
 create table MatriculaSeccion(
 	ID int unsigned not null AUTO_INCREMENT,
-	FechaInicio datetime DEFAULT CURRENT_TIMESTAMP,
+	FechaInicio datetime not null,
 	FechaFin datetime null,
 	
 	MatriculaID int unsigned not null,
@@ -411,7 +411,7 @@ create table Nota(
 
 create table Profesor(
 	ID int unsigned not null AUTO_INCREMENT,
-	FechaInicio datetime DEFAULT CURRENT_TIMESTAMP,
+	FechaInicio datetime not null,
 	FechaFin datetime null,
 		
 	InstitucionPersonaID int unsigned not null,	
