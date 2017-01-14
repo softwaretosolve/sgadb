@@ -1,6 +1,7 @@
 create table Estado(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(50),
+	Nombre varchar(50)not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,	
 	
 	primary key (ID)
 	
@@ -10,32 +11,36 @@ create table Estado(
 
 create table Institucion(
     ID int unsigned not null AUTO_INCREMENT,
-    Nombre varchar(100),
+    Nombre varchar(100) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	EstadoID int unsigned,
+	
+	EstadoID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table Telefono(
     ID int unsigned not null AUTO_INCREMENT,
-    Telefono varchar(20),
+    Telefono varchar(20) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,	
 	
 	primary key (ID)
 );
 
 create table Correo(
     ID int unsigned not null AUTO_INCREMENT,
-    Correo varchar(50),
+    Correo varchar(50) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,	
 	
 	primary key (ID)
 );
 
 create table InstitucionTelefono(
-    ID int unsigned not null AUTO_INCREMENT,
+    ID int unsigned not null AUTO_INCREMENT,	
     
-    InstitucionID int unsigned,
-    TelefonoID int unsigned,
+    InstitucionID int unsigned not null,
+    TelefonoID int unsigned not null,
 	
 	primary key (ID)
 );
@@ -43,29 +48,32 @@ create table InstitucionTelefono(
 create table InstitucionCorreo(
     ID int unsigned not null AUTO_INCREMENT,
     
-    InstitucionID int unsigned,
-    CorreoID int unsigned,
+    InstitucionID int unsigned not null,
+    CorreoID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Persona(
     ID int unsigned not null AUTO_INCREMENT,
-    Nombres varchar(50),
-    Apellidos varchar(50),
-    FechaNacimiento datetime,
-    Identificacion varchar(50),
-    Direccion varchar(100),        
-    Sexo int unsigned,
+    Nombres varchar(50) not null,
+    Apellidos varchar(50) not null,
+    FechaNacimiento datetime null,
+    Identificacion varchar(50) null,
+    Direccion varchar(100) null,        
+    Sexo int unsigned not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
+	
 	
 	primary key (ID)       
 );
 
 create table InstitucionPersona(
     ID int unsigned not null AUTO_INCREMENT,
-    
-    InstitucionID int unsigned,
-    PersonaID int unsigned,
+    CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
+	
+    InstitucionID int unsigned not null,
+    PersonaID int unsigned not null,	
 	
 	primary key (ID)
 );
@@ -73,8 +81,8 @@ create table InstitucionPersona(
 create table PersonaTelefono(
     ID int unsigned not null AUTO_INCREMENT,
     
-    PersonaID int unsigned,
-    TelefonoID int unsigned,
+    PersonaID int unsigned not null,
+    TelefonoID int unsigned not null,
 	
 	primary key (ID)
 );
@@ -82,34 +90,37 @@ create table PersonaTelefono(
 create table PersonaCorreo(
     ID int unsigned not null AUTO_INCREMENT,
     
-    PersonaID int unsigned,
-    CorreoID int unsigned,
+    PersonaID int unsigned not null,
+    CorreoID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Rol(
     ID int unsigned not null AUTO_INCREMENT,
-    Descripcion varchar(50), 
+    Descripcion varchar(50) not null, 
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	EstadoID int unsigned,
+	
+	EstadoID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table InstitucionRol(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 		
-	InstitucionID int unsigned,
-	RolID int unsigned,
+	InstitucionID int unsigned not null,
+	RolID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table InstitucionPersonaRol(
 	ID int unsigned not null AUTO_INCREMENT,
-	FechaInicio datetime,
-	FechaFin datetime,
+	FechaInicio datetime not null,
+	FechaFin datetime null,
 	
 	InstitucionPersonaID int unsigned,	
 	RolID int unsigned,
@@ -119,27 +130,31 @@ create table InstitucionPersonaRol(
 
 create table Permiso(
 	ID int unsigned not null AUTO_INCREMENT,
-	Descripcion varchar(50),
+	Descripcion varchar(50) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	EstadoID int unsigned,
+	
+	EstadoID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table InstitucionPermiso(
 	ID int unsigned not null AUTO_INCREMENT,
-		
-	InstitucionID int unsigned,
-	PermisoID int unsigned,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
+	
+	InstitucionID int unsigned not null,
+	PermisoID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table InstitucionRolPermiso(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	InstitucionRolID int unsigned,
-	PermisoID int unsigned,
+	InstitucionRolID int unsigned not null,
+	PermisoID int unsigned not null,
 	
 	primary key (ID)
 );
@@ -149,183 +164,210 @@ create table InstitucionRolPermiso(
 -------------------------------------ORGANIZACIÓN ACADÉMICA ------------------------------
 create table Materia(
     ID int unsigned not null AUTO_INCREMENT,
-    Nombre varchar(75),
+    Nombre varchar(75) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	EstadoID int unsigned,
+	
+	EstadoID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table InstitucionMateria(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	InstitucionID int unsigned,
-	MateriaID int unsigned,
+	InstitucionID int unsigned not null,
+	MateriaID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table CategoriaCiclo(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(50),
+	Nombre varchar(50) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	CategoriaCicloPadreID int unsigned,
+	
+	CategoriaCicloPadreID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table InstitucionCategoriaCiclo(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	InstitucionID int unsigned,
-	CategoriaCicloID int unsigned,
+	InstitucionID int unsigned not null,
+	CategoriaCicloID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Ciclo(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(50),
-	FechaInicio datetime,
-	FechaFin datetime,
+	Nombre varchar(50) not null,
+	FechaInicio datetime not null,
+	FechaFin datetime not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
+	
 		
-	CategoriaCicloID int unsigned,
-	CicloPadreID int unsigned,
+	CategoriaCicloID int unsigned null,
+	CicloPadreID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table InstitucionCiclo(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	InstitucionID int unsigned,
-	CicloID int unsigned,
+	InstitucionID int unsigned not null,
+	CicloID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table CategoriaNivel(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(50),
+	Nombre varchar(50) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	CategoriaNivelPadreID int unsigned,
+	
+	CategoriaNivelPadreID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table InstitucionCategoriaNivel(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	InstitucionID int unsigned,
-	CategoriaNivelID int unsigned,
+	InstitucionID int unsigned not null,
+	CategoriaNivelID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Nivel(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(75), 
+	Nombre varchar(75) not null, 
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	CategoriaNivelID int unsigned,
-	NivelPadreID int unsigned,
+	
+	CategoriaNivelID int unsigned null,
+	NivelPadreID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table InstitucionNivel(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	InstitucionID int unsigned,
-	NivelID int unsigned,
+	InstitucionID int unsigned not null,
+	NivelID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Seccion(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(50),
+	Nombre varchar(50) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
+	
 
-	InstitucionNivelID int unsigned,
-	EstadoID int unsigned,
+	InstitucionNivelID int unsigned not null,
+	EstadoID int unsigned null,
 	
 	primary key (ID)
 );
 
 create table Curriculo(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(100),
-	Fecha datetime,
+	Nombre varchar(100) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
+	
 	
 	primary key (ID)
 );
 
 create table Asignatura(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	CurriculoID int unsigned,
-	MateriaID int unsigned,
+	CurriculoID int unsigned not null,
+	MateriaID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table InstitucionNivelCurriculo(
 	ID int unsigned not null AUTO_INCREMENT,
-	FechaInicio datetime,
-	FechaFin datetime,
+	FechaInicio datetime DEFAULT CURRENT_TIMESTAMP,
+	FechaFin datetime null,
 	
-	InstitucionNivelID int unsigned,	
-	CurriculoID int unsigned,
+	InstitucionNivelID int unsigned not null,	
+	CurriculoID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Unidad(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(50),
-	PuntajeMinimo decimal(9,2),
-	PuntajeMaximo decimal(9,2),	
+	Nombre varchar(50) not null,
+	PuntajeMinimo decimal(9,2) null default 0,
+	PuntajeMaximo decimal(9,2) null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 		
-	AsignaturaID int unsigned,
-	CicloID int unsigned,
+		
+	AsignaturaID int unsigned not null,
+	CicloID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table TipoActividad(
 	ID int unsigned not null AUTO_INCREMENT,
-	Descripcion varchar(75),
+	Descripcion varchar(75) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
+	
 	
 	primary key (ID)
 );
 
 create table InstitucionTipoActividad(
 	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	InstitucionID int unsigned,
-	TipoActividadID int unsigned,
+	InstitucionID int unsigned not null,
+	TipoActividadID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Actividad(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(75),
-	Descripcion varchar(1000),
-	Ponderacion decimal(9,2),
-	Fecha datetime,
+	Nombre varchar(75) not null,
+	Descripcion varchar(1000) null,
+	Ponderacion decimal(9,2) null,
+	Fecha datetime null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	TipoActividadID int unsigned,
-	UnidadID int unsigned,
+	
+	TipoActividadID int unsigned null,
+	UnidadID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Curso(
-	ID int unsigned not null AUTO_INCREMENT,		
+	ID int unsigned not null AUTO_INCREMENT,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,	
 	
-	CicloID int unsigned,
-	AsignaturaID int unsigned,
-	SeccionID int unsigned,
+	CicloID int unsigned not null,
+	AsignaturaID int unsigned not null,
+	SeccionID int unsigned not null,
 	
 	primary key (ID)
 );
@@ -334,43 +376,46 @@ create table Curso(
 ------------------------------------------- CONTROL ACADÉMICO ---------------------------------------------
 create table Matricula(
 	ID int unsigned not null AUTO_INCREMENT,
-	Fecha datetime,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	InstitucionPersonaID int unsigned,
-	CicloID int unsigned,
-	NivelID int unsigned,
+	
+	InstitucionPersonaID int unsigned not null,
+	CicloID int unsigned not null,
+	NivelID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table MatriculaSeccion(
 	ID int unsigned not null AUTO_INCREMENT,
-	FechaInicio datetime,
-	FechaFin datetime,
+	FechaInicio datetime DEFAULT CURRENT_TIMESTAMP,
+	FechaFin datetime null,
 	
-	MatriculaID int unsigned,
-	SeccionID int unsigned,
+	MatriculaID int unsigned not null,
+	SeccionID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Nota(
 	ID int unsigned not null AUTO_INCREMENT,
-	Puntaje decimal(9,2),
+	Puntaje decimal(9,2) not null,
+	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
-	ActividadID int unsigned,
-	MatriculaID int unsigned,
+	
+	ActividadID int unsigned not null,
+	MatriculaID int unsigned not null,
 	
 	primary key (ID)
 );
 
 create table Profesor(
 	ID int unsigned not null AUTO_INCREMENT,
-	FechaInicio datetime,
-	FechaFin datetime,
+	FechaInicio datetime DEFAULT CURRENT_TIMESTAMP,
+	FechaFin datetime null,
 		
-	InstitucionPersonaID int unsigned,	
-	CursoID int unsigned,
+	InstitucionPersonaID int unsigned not null,	
+	CursoID int unsigned not null,
 	
 	primary key (ID)
 );
