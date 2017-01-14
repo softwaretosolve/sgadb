@@ -304,7 +304,7 @@ create table Asignatura(
 
 create table InstitucionNivelCurriculo(
 	ID int unsigned not null AUTO_INCREMENT,
-	FechaInicio datetime DEFAULT CURRENT_TIMESTAMP,
+	FechaInicio datetime not null,
 	FechaFin datetime null,
 	
 	InstitucionNivelID int unsigned not null,	
