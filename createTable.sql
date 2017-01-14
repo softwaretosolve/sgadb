@@ -7,7 +7,7 @@ create table Estado(
 	
 );
 
-------------------------------------- MÓDULO ADMINISTRACION ---------------------
+#------------------------------------- MÓDULO ADMINISTRACION ---------------------
 
 create table Institucion(
     ID int unsigned not null AUTO_INCREMENT,
@@ -158,10 +158,10 @@ create table InstitucionRolPermiso(
 	
 	primary key (ID)
 );
---------------------------------- FIN MÓDULO ADMINISTRACION ---------------------
+#--------------------------------- FIN MÓDULO ADMINISTRACION ---------------------
 
 
--------------------------------------ORGANIZACIÓN ACADÉMICA ------------------------------
+#-------------------------------------ORGANIZACIÓN ACADÉMICA ------------------------------
 create table Materia(
     ID int unsigned not null AUTO_INCREMENT,
     Nombre varchar(75) not null,
@@ -371,9 +371,9 @@ create table Curso(
 	
 	primary key (ID)
 );
-------------------------------------------- FIN ORGANIZACIÓN ACADÉMICA -------------------------------------------
+#------------------------------------------- FIN ORGANIZACIÓN ACADÉMICA -------------------------------------------
 
-------------------------------------------- CONTROL ACADÉMICO ---------------------------------------------
+#------------------------------------------- CONTROL ACADÉMICO ---------------------------------------------
 create table Matricula(
 	ID int unsigned not null AUTO_INCREMENT,
 	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
