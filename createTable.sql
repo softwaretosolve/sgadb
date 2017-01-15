@@ -207,6 +207,7 @@ create table InstitucionCategoriaCiclo(
 create table Ciclo(
 	ID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50) not null,
+	Ordinal int unsigned null,
 	FechaInicio datetime not null,
 	FechaFin datetime not null,
 	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -251,7 +252,8 @@ create table InstitucionCategoriaNivel(
 
 create table Nivel(
 	ID int unsigned not null AUTO_INCREMENT,
-	Nombre varchar(75) not null, 
+	Nombre varchar(75) not null,
+	Ordinal int unsigned null,
 	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
 	
