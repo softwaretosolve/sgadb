@@ -311,10 +311,10 @@ create table Actividad(
 	Ponderacion decimal(9,2) null,
 	Fecha datetime null,
 	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
-	
-	
+		
 	TipoActividadID int unsigned null,
 	UnidadID int unsigned not null,
+	SeccionID int unsigned not null,
 	
 	primary key (ActividadID)
 );
