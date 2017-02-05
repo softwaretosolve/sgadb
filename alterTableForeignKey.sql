@@ -186,6 +186,10 @@ ALTER TABLE Asignatura
 	ADD FOREIGN KEY (MateriaID)
 	REFERENCES Materia(MateriaID);	
 	
+ALTER TABLE Asignatura
+	ADD FOREIGN KEY (EstadoID)
+	REFERENCES Estado(EstadoID);
+	
 #-----------------------------------------------------
 	
 ALTER TABLE NivelCurriculo
