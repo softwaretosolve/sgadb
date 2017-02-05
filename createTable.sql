@@ -262,6 +262,7 @@ create table Asignatura(
 	
 	CurriculoID int unsigned not null,
 	MateriaID int unsigned not null,
+	EstadoID int usigned not null,
 	
 	primary key (AsignaturaID)
 );
