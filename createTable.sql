@@ -1,23 +1,23 @@
 create table Estado(
-	ID int unsigned not null AUTO_INCREMENT,
+	EstadoID int unsigned not null AUTO_INCREMENT,
 	Nombre varchar(50)not null,
 	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,	
 	
-	primary key (ID)
+	primary key (EstadoID)
 	
 );
 
 #------------------------------------- MÓDULO ADMINISTRACION ---------------------
 
 create table Institucion(
-    ID int unsigned not null AUTO_INCREMENT,
+    InstitucionID int unsigned not null AUTO_INCREMENT,
     Nombre varchar(100) not null,
 	CreatedAt timestamp DEFAULT CURRENT_TIMESTAMP,
 	
 	
 	EstadoID int unsigned null,
 	
-	primary key (ID)
+	primary key (InstitucionID)
 );
 
 create table Telefono(
