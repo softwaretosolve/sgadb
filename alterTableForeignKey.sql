@@ -231,8 +231,8 @@ ALTER TABLE Actividad
 	REFERENCES TipoActividad(TipoActividadID);
 
 ALTER TABLE Actividad
-	ADD FOREIGN KEY (UnidadID)
-	REFERENCES Unidad(UnidadID);
+	ADD FOREIGN KEY (CicloID)
+	REFERENCES Ciclo(CicloID);
 	
 ALTER TABLE Actividad
 	ADD FOREIGN KEY (SeccionID)
